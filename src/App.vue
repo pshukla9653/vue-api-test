@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <DropdowmEl/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DropdowmEl from './components/DropdowmEl.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DropdowmEl
   }
 }
 </script>

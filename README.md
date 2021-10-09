@@ -1,4 +1,7 @@
 # vue-api
+```
+git clone https://github.com/pshukla9653/vue-api-test.git
+```
 
 ## Project setup
 ```
