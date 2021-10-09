@@ -33,7 +33,7 @@
     </div>
     <div class="dropdown">
       <span>City:</span>
-      <select :disabled="listCities.length == 0" v-model="selectedCity">
+      <select multiple="true" :disabled="listCities.length == 0" v-model="selectedCity">
         <option value="">Select a City</option>
         <option
           v-for="(city, index) in listCities"
@@ -44,9 +44,11 @@
         </option>
       </select>
     </div>
+
     <p v-if="selectedCountry">Selected Country - {{ this.selectedCountry }}</p>
     <p v-if="selectedState">Selected State - {{ this.selectedState }}</p>
-    <p v-if="selectedCity">Selected City - {{ this.selectedCity }}</p>
+    <p v-if="selectedCity">Selected City - {{ this.selectedCity }}<br>
+    Number of selected cities is - {{this.selectedCity.length}}</p>
   </div>
 </template>
 
