@@ -136,8 +136,12 @@ export default {
 select {
   width: 250px;
   padding:5px;
+  margin:5px;
 }
 span{
   padding:5px;
+  margin:5px;
+  display:grid;
 }
+
 </style>
