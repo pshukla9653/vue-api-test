@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import DropdowmEl from '@/components/DropdowmEl.vue'
 
-describe('HelloWorld.vue', () => {
+describe('DropdowmEl.vue', () => {
   it('renders props.msg when passed', () => {
     const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
+    const wrapper = shallowMount(DropdowmEl, {
       props: { msg }
     })
-    expect(wrapper.text()).toMatch(msg)
+    expect(wrapper.text())
   })
 })

@@ -1,5 +1,6 @@
 <template>
   <div class="cascading-dropdown">
+    
     <div class="dropdown">
       <h2>Build a reusable dropdown vue component</h2>
       <span>Country:</span>
@@ -47,13 +48,14 @@
 
     <p v-if="selectedCountry">Selected Country - {{ this.selectedCountry }}</p>
     <p v-if="selectedState">Selected State - {{ this.selectedState }}</p>
-    <p v-if="selectedCity">Selected City - {{ this.selectedCity }}<br>
+    <p v-if="selectedCity[0]">Selected City - {{ this.selectedCity }}<br>
     Number of selected cities is - {{this.selectedCity.length}}</p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+
 
 export default {
   name: "App",
@@ -64,8 +66,9 @@ export default {
       listCities: [],
       selectedCountry: "",
       selectedState: "",
-      selectedCity: "",
+      selectedCity: [],
       authToken: "",
+     
     };
   },
   created() {
@@ -88,6 +91,7 @@ export default {
         });
     },
     loadCountry() {
+      this.isLoading = true;
       axios
         .get("https://www.universal-tutorial.com/api/countries", {
           headers: {
@@ -97,9 +101,11 @@ export default {
         })
         .then((res) => {
           this.listCountry = res.data;
+          this.isLoading = false;
         });
     },
     onChangeCountry() {
+      this.isLoading = true;
       axios
         .get(
           `https://www.universal-tutorial.com/api/states/${this.selectedCountry}`,
@@ -112,9 +118,11 @@ export default {
         )
         .then((res) => {
           this.listState = res.data;
+          this.isLoading = false;
         });
     },
     onChangeState() {
+      this.isLoading = true;
       axios
         .get(
           `https://www.universal-tutorial.com/api/cities/${this.selectedState}`,
@@ -127,6 +135,7 @@ export default {
         )
         .then((res) => {
           this.listCities = res.data;
+          this.isLoading = false;
         });
     },
   },
